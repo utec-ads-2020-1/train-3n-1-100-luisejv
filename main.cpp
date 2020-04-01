@@ -7,7 +7,7 @@ using namespace std;
 
 int main()
 {
-	fstream *arch = new fstream("prueba.txt", ios_base::in);
+	fstream *arch = new fstream("prueba3.txt", ios_base::in);
 	if (!(arch->is_open()))
 	{
 		cout << "Archivo fallo en leer" << endl;
@@ -24,6 +24,12 @@ int main()
 			getline(stream, j, ' ');
 			num1 = stoi(i);
 			num2 = stoi(j);
+			if (num1 > num2)
+			{
+				int temp = num1;
+				num1 = num2;
+				num2 = temp;
+			}
 			for (num1; num1 <= num2; num1++)
 			{
 				int finalNum = num1;
@@ -38,4 +44,5 @@ int main()
 			cout << i << " " << j << " " << mayorCiclo << endl;
 		}
 	}
+	delete arch;
 }
